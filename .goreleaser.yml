@@ -1,0 +1,37 @@
+builds:
+  - goos:
+      - darwin
+      - linux
+      - windows
+    env:
+      - CGO_ENABLED=0
+    goarch: [amd64]
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ .Tag }}-next"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
+brew:
+  github:
+    owner: glassechidna
+    name: homebrew-taps
+  commit_author:
+    name: Aidan Steele
+    email: aidan.steele@glassechidna.com.au
+  homepage: https://github.com/glassechidna/kms-host-key
+  description: kms-host-key is an easy way to give all your EC2 instances SSH host certificates
+scoop:
+  bucket:
+    owner: glassechidna
+    name: scoop-bucket
+  commit_author:
+    name: Aidan Steele
+    email: aidan.steele@glassechidna.com.au
+  homepage: https://github.com/glassechidna/kms-host-key
+  description: kms-host-key is an easy way to give all your EC2 instances SSH host certificates
+  license: MIT
